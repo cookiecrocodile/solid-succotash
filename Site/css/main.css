@@ -16,5 +16,39 @@ body {
     margin-right: 0;
     float: right;
     width: 200px;
-    
+}
+
+#bad-button {
+
+    font-size: 10px;
+    font-style: italic;
+    background-color: cornsilk;
+    border: 1px solid transparent;
+}
+
+.orange-header {
+    color: orange;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 42px;
+}
+
+
+.special-text-content {
+    margin-top: 20px;
+    font-size: 1.4em;
+    color: darkgrey;
+}
+
+#main-div {
+    background-color: rgba(252, 248, 248, 0.70);
+    border-radius: 10px;
+    border: 2px solid lightgrey;
+}
+
+.rounded-image{
+    border-radius: 10px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    border: 1px solid lightgrey;
+  
 }
