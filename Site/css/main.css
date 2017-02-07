@@ -1,0 +1,20 @@
+body {
+    background-color: aliceblue;
+}
+
+.main {
+    margin-top: 50px;
+}
+
+#cta-button {
+    margin-top: 15px;
+    padding: 15px;
+    font-size: 1.5em;
+    background-color: orange;
+    display: inline-block;
+    margin-left: auto;
+    margin-right: 0;
+    float: right;
+    width: 200px;
+    
+}
