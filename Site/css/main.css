@@ -8,7 +8,7 @@ body {
 
 #cta-button {
     margin-top: 15px;
-    padding: 15px;
+    padding: 10px;
     font-size: 1.5em;
     background-color: orange;
     display: inline-block;
@@ -16,6 +16,7 @@ body {
     margin-right: 0;
     float: right;
     width: 200px;
+    border: 1px solid grey;
 }
 
 #bad-button {
