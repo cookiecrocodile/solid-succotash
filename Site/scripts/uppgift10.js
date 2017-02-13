@@ -1,6 +1,8 @@
 let btn = document.getElementById("btnAdd");
 let list = document.getElementById("listOne");
 let input = document.getElementById("inputbox");
+let btnChange = document.getElementById("btnChange");
+let btnRemove = document.getElementById("btnRemove");
 
 
 let addToList = function(){
@@ -13,7 +15,6 @@ let addToList = function(){
     input.value = "";  
 }
 
-
 let changeInputField = function(e){
     
     var item = e.target;
@@ -23,16 +24,34 @@ let changeInputField = function(e){
 let changeLiColor = function(e){
 
     var li = e.target;
+    var listItems = list.getElementsByTagName("li");
     
-    if(li.classList.contains("bg-pink")){
-        li.className = "bg-none";
+    for(let x of listItems){
+        x.className = "bg-none";
     }
-    else{
-        li.className = "bg-pink";
-    }
+    
+    li.className = "bg-pink";
+    
+}
+
+let changeLiText = function(){
+    
+    let text = input.value;
+    
+    let liToChange = document.getElementsByClassName("bg-pink")[0];
+    
+    liToChange.innerText = text;
+    liToChange.className = "bg-none";
+}
+
+let removeItem = function (){
+    var li = document.getElementsByClassName("bg-pink")[0];
+    list.removeChild(li);
 }
 
 
 btn.addEventListener("click", addToList);
 list.addEventListener("click", changeInputField);
 list.addEventListener("click", changeLiColor);
+btnChange.addEventListener("click", changeLiText);
+btnRemove.addEventListener("click", removeItem);
