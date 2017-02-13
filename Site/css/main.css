@@ -53,3 +53,11 @@ body {
     border: 1px solid lightgrey;
   
 }
+
+.pink {
+    background-color: hotpink;
+}
+
+.none {
+    background-color: none;
+}
