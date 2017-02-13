@@ -14,17 +14,25 @@ let addToList = function(){
 }
 
 
-let changeInput = function(e){
+let changeInputField = function(e){
     
-    let item = e.target;
-    input.value = item.innerHTML;    
+    var item = e.target;
+    input.value = item.innerHTML;  
+}
+
+let changeLiColor = function(e){
+
+    var li = e.target;
+    
+    if(li.classList.contains("bg-pink")){
+        li.className = "bg-none";
+    }
+    else{
+        li.className = "bg-pink";
+    }
 }
 
 
-
 btn.addEventListener("click", addToList);
-list.addEventListener("click", changeInput);
-
-
-/*
-<!-- Skriv ett HTML-dokument som innehåller följande element: en textruta, en knapp och en lista. När man klickar på knappen så ska det läggas till ett nytt element sist i listan, som har samma text som den som står i textrutan. När man klickar på någon av elementen i listan så ska texten i textrutan ersättas med det som står i elementet man klickade på. Dessutom så ska elementen i listan byta bakgrundsfärg när man klickar på dem. --> */
+list.addEventListener("click", changeInputField);
+list.addEventListener("click", changeLiColor);
