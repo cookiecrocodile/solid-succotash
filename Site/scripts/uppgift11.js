@@ -20,10 +20,9 @@ btn.addEventListener("click", function(){
         console.log(responseObject);
         
         for(let x in responseObject){
-            div.innerHTML += x;
-            div.innerHTML+=": ";
-            div.innerHTML += responseObject[x];
-            div.innerHTML += "<br/>"
+            
+            div.innerHTML += `${x}: ${responseObject[x]}<br/>`
+            
         }
         
       
@@ -38,13 +37,10 @@ btnFetch.addEventListener("click", function(){
     })
         .then(function(json) {
    
-            divFetch.innerHTML = "";
-        
+    
             for(let p in json){
-                divFetch.innerHTML += p;
-                divFetch.innerHTML+=": ";
-                divFetch.innerHTML += json[p];
-                divFetch.innerHTML += "<br/>"
+               
+                divFetch.innerHTML += `${p}: ${json[p]}<br/>`;
             }
         
     });
@@ -58,13 +54,11 @@ btnQuery.addEventListener("click", function(){
     })
         .then(function(json) {
    
-            divQuery.innerHTML = "";
         
             for(let p in json){
-                divQuery.innerHTML += p;
-                divQuery.innerHTML+=": ";
-                divQuery.innerHTML += json[p];
-                divQuery.innerHTML += "<br/>"
+                
+                divQuery.innerHTML += `${p}: ${json[p]}<br/>`
+               
             }
         
     });
