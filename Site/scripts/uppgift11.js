@@ -22,10 +22,7 @@ btn.addEventListener("click", function(){
         for(let x in responseObject){
             
             div.innerHTML += `${x}: ${responseObject[x]}<br/>`
-            
         }
-        
-      
     }
     ajax.send();
 });
@@ -37,12 +34,10 @@ btnFetch.addEventListener("click", function(){
     })
         .then(function(json) {
    
-    
             for(let p in json){
                
                 divFetch.innerHTML += `${p}: ${json[p]}<br/>`;
-            }
-        
+            }      
     });
 });
 
@@ -54,11 +49,9 @@ btnQuery.addEventListener("click", function(){
     })
         .then(function(json) {
    
-        
             for(let p in json){
                 
                 divQuery.innerHTML += `${p}: ${json[p]}<br/>`
-               
             }
         
     });
