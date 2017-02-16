@@ -31,7 +31,6 @@ btnFetch.addEventListener("click", function(){
             }  
         }
         
-
         let eu = json.filter(obj => obj.continent === "Europe").reduce((a, b) => ({continent: "Europe", population: a.population + b.population}));
         let af = json.filter(obj => obj.continent === "Africa").reduce((a, b) => ({continent: "Africa", population: a.population + b.population}));
         let as = json.filter(obj => obj.continent === "Asia").reduce((a, b) => ({continent: "Asia", population: a.population + b.population}));
@@ -49,7 +48,5 @@ btnFetch.addEventListener("click", function(){
         divWomen.innerText = womZim;
         divFewest.innerText = leastPpl;
         divContinent.innerText = mostPpl.continent;
-        
-        
     });
 });
