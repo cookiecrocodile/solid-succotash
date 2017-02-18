@@ -61,3 +61,14 @@ body {
 .bg-none {
     background-color: none;
 }
+
+.book-unread{
+    background-color: deepskyblue;
+}
+.book-finished {
+    background-color: grey;
+}
+
+.book-reading{
+    background-color: orange;
+}
