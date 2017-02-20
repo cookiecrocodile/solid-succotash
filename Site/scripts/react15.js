@@ -11,30 +11,30 @@ class Calculator extends React.Component{
         let one = document.getElementById("value1").value;
         let two = document.getElementById("value2").value;
         
-        let numOne = parseInt(one);
-        let numTwo = parseInt(two);
-        
-        if(Number.isNaN(numOne) || Number.isNaN(numTwo)){
-            this.setState({errormessage: "Ange två giltiga tal"});
-        }
-        
-            this.setState({value1: numOne, value2: numTwo, errormessage: ''}, () => this.addNumbers());
-        
+        this.setState({value1: one, value2: two}, () => this.addNumbers());
     }
     
 
     
     addNumbers(){
-        console.log("Adding numbers");
+        
         let one = this.state.value1;
         let two = this.state.value2;
         
-        let sum = one + two;
+        let numOne = parseInt(one);
+        let numTwo = parseInt(two);
+        
+        if(Number.isNaN(numOne) || Number.isNaN(numTwo)){
+            this.setState({errormessage: "Ange två giltiga tal", result: 'NaN'});
+            console.log("one not valid");
+        }
+        else{
+            let sum = numOne + numTwo;
         console.log("Summan: " + sum + ", typ: " + typeof(sum));
         
-        this.setState({result: sum});
+        this.setState({result: sum, errormessage: ""});
         Console.log(this.state.result + ", type: " + typeof(this.state.result));
-        
+        }
     }
     
     render(){
