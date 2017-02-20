@@ -4,36 +4,48 @@ class Calculator extends React.Component{
         
         this.state = {result: 0, value1: 0, value2: 0, errormessage: ''};
         this.inputboxesChanged = this.inputboxesChanged.bind(this);
-        this.addNumbers = this.addNumbers.bind(this);
+        this.calculate = this.calculate.bind(this);
     }
     
     inputboxesChanged(){
         let one = document.getElementById("value1").value;
         let two = document.getElementById("value2").value;
         
-        this.setState({value1: one, value2: two}, () => this.addNumbers());
+        this.setState({value1: one, value2: two}, () => this.calculate());
     }
     
 
-    
-    addNumbers(){
-        
+    calculate(){
+        console.log("räknar");
         let one = this.state.value1;
         let two = this.state.value2;
+        
+        let operator = document.getElementById("opSelect").value;
         
         let numOne = parseInt(one);
         let numTwo = parseInt(two);
         
         if(Number.isNaN(numOne) || Number.isNaN(numTwo)){
             this.setState({errormessage: "Ange två giltiga tal", result: 'NaN'});
-            console.log("one not valid");
         }
         else{
-            let sum = numOne + numTwo;
-        console.log("Summan: " + sum + ", typ: " + typeof(sum));
-        
+            
+            let sum = 0;
+            
+            if(operator === '+'){
+                sum = numOne + numTwo;
+            }
+            else if(operator === '-'){
+                sum = numOne - numTwo;
+            }
+            else if(operator === '*'){
+                sum = numOne * numTwo;
+            }
+            else{
+                sum = numOne / numTwo;
+            }
+            
         this.setState({result: sum, errormessage: ""});
-        Console.log(this.state.result + ", type: " + typeof(this.state.result));
         }
     }
     
@@ -41,7 +53,7 @@ class Calculator extends React.Component{
         return(
       <div><h1>Räkna</h1>
       <form>
-          <input className="input-small" id="value1" value={this.state.value1} onChange={this.inputboxesChanged}/> + 
+          <input className="input-small" id="value1" value={this.state.value1} onChange={this.inputboxesChanged}/><OperatorSelect opselected={this.inputboxesChanged}/> 
             <input className="input-small" id="value2" value={this.state.value2} onChange={this.inputboxesChanged}  /> = <Resultbox result={this.state.result}/>
       </form>
             <div>{this.state.errormessage}</div>
@@ -58,5 +70,18 @@ class Resultbox extends React.Component{
     }
 }
 
+class OperatorSelect extends React.Component{
+   render(){
+        const selection = ( <select id="opSelect" onChange={this.props.opselected} className="input-small">
+  <option value="+">+</option>
+  <option value="-">-</option>
+  <option value="*">*</option>
+  <option value="/">/</option>
+</select> );
+       return (selection);
+   }
+}
+
+                
 
 ReactDOM.render(<Calculator/>, document.getElementById("react-div"));
