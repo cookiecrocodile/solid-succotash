@@ -1,10 +1,8 @@
 let wordlist = ["apa", "lapa", "gapa", "rapa", "skapa"];
 let translations = [{word: "katt", translation: "cat" }, 
                     {word: "hund", translation: "dog" }, 
-                    {word: "marsvin", translation: "guineapig" }, 
+                    {word: "marsvin", translation: "guinea pig" }, 
                     {word: "guldfisk", translation: "goldfish" }];
-
-console.log(translations);
 
 class MyList extends React.Component {
     render(){

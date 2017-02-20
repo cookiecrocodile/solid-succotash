@@ -11,10 +11,10 @@ ReactDOM.render(
 );
 
 // Uppgift 1.2
-const added = (<p>Talet är: {333 + 777}</p>);
+//const added = (<p>Talet är: {333 + 777}</p>);
 
 ReactDOM.render(
-    added, 
+    (<p>Talet är: {333 + 777}</p>), 
     document.getElementById("second-div"));
 
 // Uppgift 1.3
@@ -126,8 +126,8 @@ class Book extends React.Component{
 
 ReactDOM.render(
       (<div>
-          <Book author ="Någon" title ="Något"/>
-          <Book author ="Någon annan" title ="Något annat"/>
+          <Book author ="Anna Anonym" title ="Min bok"/>
+          <Book author ="Nemo" title ="Du vet inte vem jag är"/>
           <Book author ="Elof" title ="Elof är bäst"/>
         </div>),
         document.getElementById("sixth-div"));
