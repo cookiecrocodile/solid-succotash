@@ -16,7 +16,6 @@ class Calculator extends React.Component{
     
 
     calculate(){
-        console.log("räknar");
         let one = this.state.value1;
         let two = this.state.value2;
         
