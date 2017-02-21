@@ -85,3 +85,25 @@ body {
 .bg-result{
     background-color: lightgoldenrodyellow;
 }
+
+.fancy-table {
+    background-color: lightblue;
+    border: 1px solid lightgrey;
+    border-radius: 5px;
+    font-family: sans-serif;
+}
+
+.fancy-table td {
+    background-color: white;
+    border: 1px solid lightgrey;
+    padding: 5px;
+}
+
+.fancy-table thead {
+    font-size: 1.1em;
+    text-align: left;
+}
+
+.number-column {
+    text-align:right;
+}
