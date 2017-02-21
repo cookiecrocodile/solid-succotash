@@ -21,8 +21,8 @@ class Calculator extends React.Component{
         
         let operator = document.getElementById("opSelect").value;
         
-        let numOne = parseInt(one);
-        let numTwo = parseInt(two);
+        let numOne = parseFloat(one);
+        let numTwo = parseFloat(two);
         
         if(Number.isNaN(numOne) || Number.isNaN(numTwo)){
             this.setState({errormessage: "Ange två giltiga tal", result: 'NaN'});
