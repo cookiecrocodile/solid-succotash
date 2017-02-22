@@ -86,7 +86,7 @@ class ObjectTableRow extends React.Component{
         super(props);
         this.state = {clicked: false};
         this.setClickedState = this.setClickedState.bind(this);
-            }
+         }
         
 setClickedState(){
      
