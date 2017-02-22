@@ -1,2 +1,2 @@
 # solid-succotash
-Excercises for school
+Exercises for school
