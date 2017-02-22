@@ -42,9 +42,7 @@ class ObjectDisplay extends React.Component{
     removeItem(event){
         console.log("remove item table button clicked");
         event.stopPropagation();
-        //let item = event.currentTarget;
         let row = event.target.parentElement.parentElement;
-        //console.log(item);
         console.log(row);
 
         let list = this.state.data;
