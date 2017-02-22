@@ -23,7 +23,6 @@ class ObjectDisplay extends React.Component{
   }
         
     fetchData(){
-       console.log("Fetch called");
         
         let _this = this;
         
@@ -34,8 +33,7 @@ class ObjectDisplay extends React.Component{
         .then (function(json) {
             console.log("I've got json and I'm not afraid to use it");
             
-            _this.setState({data: json, itemcount: json.length});
-            console.log("data saved in state"); 
+            _this.setState({data: json});
         });
     
             
@@ -56,6 +54,10 @@ class ObjectDisplay extends React.Component{
     filterList(event){
         let searchtext = event.target.value;
         this.setState({filter: searchtext});
+    }
+        
+    changeListItem(event){
+        console.log("change list item function triggered");
     }
 }
     
@@ -94,33 +96,54 @@ class ObjectTable extends React.Component{
 class ObjectTableRow extends React.Component{
     constructor(props){
         super(props);
-        this.state = {clicked: false};
+            
+        this.state = {item: this.props.item, clicked: false, editing: false};
         this.setClickedState = this.setClickedState.bind(this);
+        this.editInput = this.editInput.bind(this);
          }
         
-setClickedState(){
+setClickedState(event){
      
+    let clickedItem = event.target;
+    let text = event.target.innerHTML;
+    console.log(text);
+    
     if(this.state.clicked === false){
-        this.setState({class: "test", clicked: true});
+        this.setState({clicked: true, editing: true});
     }
     else{
-       this.setState({class: "", clicked: false});
+       //this.setState({clicked: false, editing: false});
     }   
 }
         
+editInput(event){
+    
+        let editItem = this.state.item;
+        editItem.name = this.nameInput.value;
+        editItem.continent = this.continentInput.value;
+        editItem.population = this.populationInput.value;
+        
+        console.log(editItem);
+        this.setState({ item: editItem, clicked: false});
+        console.log("base item changed");
+}
+        
+
+        
 render(){
     
-    const item = this.props.item;
+    const item = this.state.item;
     let row;
     
     if(this.state.clicked === false){
         row =(<tr key={item.name} id={item.name}  onClick={this.setClickedState}><td>{item.name}</td><td>{item.continent}</td><td className="number-column">{item.population}</td></tr>);
     }
     else {
-        row = (<tr key={item.name} id={item.name} onClick={this.setClickedState}><td>{item.name}</td><td>{item.continent}</td><td className="number-column">{item.population}</td><td><button onClick={this.props.clickEvent}>Remove row</button></td></tr>);
+        //itemChange
+        
+        row = (<tr key={item.name} id={item.name}><td><input defaultValue={item.name} onBlur={this.editInput} ref={(input) => { this.nameInput = input; }}/></td><td><input defaultValue={item.continent} onBlur={this.editInput} ref={(input) => { this.continentInput = input; }}/></td><td className="number-column"><input defaultValue={item.population} onBlur={this.editInput} ref={(input) => { this.populationInput = input; }}/></td><td><button onClick={this.props.clickEvent}>Remove row</button></td></tr>);
+        
     }
-    /*
-    return(<tr key={item.name} id={item.name} className={this.state.class} onClick={this.setClickedState}><td>{item.name}</td><td>{item.continent}</td><td className="number-column">{item.population}</td></tr>); */
     
     return row;
     }
