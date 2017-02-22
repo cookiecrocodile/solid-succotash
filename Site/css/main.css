@@ -112,3 +112,11 @@ body {
     border: 2px solid orange;
     background-color: orange;
 }
+
+#filterbox {
+    border: 1px solid lightgrey;
+    border-radius: 5px;
+    margin-bottom: 5px;
+    width: 200px;
+    height: 25px;
+}

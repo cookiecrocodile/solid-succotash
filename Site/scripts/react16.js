@@ -3,13 +3,15 @@ class ObjectDisplay extends React.Component{
         super(props);
         this.fetchData = this.fetchData.bind(this);
         this.removeItem = this.removeItem.bind(this);
-        this.state = { data: [], itemcount: 0};
+        this.filterList = this.filterList.bind(this);
+        this.state = { data: [], itemcount: 0, filter: ''};
     }
     
     render(){
         return(<div>
                <h2>Table of Countries</h2>
-               <ObjectTable list={this.state.data} removeEvent = {this.removeItem}/>
+               <input id="filterbox" onChange={this.filterList}/>
+               <ObjectTable list={this.state.data} removeEvent = {this.removeItem} filter={this.state.filter}/>
                <p>Number of countries: {this.state.itemcount}</p>
               
                </div>);
@@ -50,6 +52,11 @@ class ObjectDisplay extends React.Component{
         
         this.setState({data: newList, itemcount: newList.length});
     }
+        
+    filterList(event){
+        let searchtext = event.target.value;
+        this.setState({filter: searchtext});
+    }
 }
     
     
@@ -58,8 +65,10 @@ class ObjectTable extends React.Component{
     
     render(){
         
-        const rows = this.props.list.map(x => <ObjectTableRow key={x.name} item={x} clickEvent={this.props.removeEvent}/>);
-        
+        let filter = this.props.filter.toLowerCase();
+    
+        const rows = this.props.list.filter(x => x.name.toLowerCase().includes(filter)).map(x => <ObjectTableRow key={x.name} item={x} clickEvent={this.props.removeEvent}/>);
+
         return(<table className="fancy-table">
                 <thead>
                     <tr>
