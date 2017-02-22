@@ -18,7 +18,7 @@ class ObjectDisplay extends React.Component{
     }
     
     componentDidMount() {
-     console.log("ObjectDisplay component mounted");
+     //console.log("ObjectDisplay component mounted");
      this.fetchData();
   }
         
@@ -31,7 +31,7 @@ class ObjectDisplay extends React.Component{
         return response.json();
     })
         .then (function(json) {
-            console.log("I've got json and I'm not afraid to use it");
+            //console.log("I've got json and I'm not afraid to use it");
             
             _this.setState({data: json});
         });
@@ -40,7 +40,7 @@ class ObjectDisplay extends React.Component{
    }
 
     removeItem(event){
-        console.log("remove item table button clicked");
+        //console.log("remove item table button clicked");
         event.stopPropagation();
         let row = event.target.parentElement.parentElement;
         console.log(row);
@@ -56,9 +56,6 @@ class ObjectDisplay extends React.Component{
         this.setState({filter: searchtext});
     }
         
-    changeListItem(event){
-        console.log("change list item function triggered");
-    }
 }
     
     
@@ -103,17 +100,11 @@ class ObjectTableRow extends React.Component{
          }
         
 setClickedState(event){
-     
-    let clickedItem = event.target;
-    let text = event.target.innerHTML;
-    console.log(text);
     
     if(this.state.clicked === false){
-        this.setState({clicked: true, editing: true});
+        this.setState({clicked: true});
     }
-    else{
-       //this.setState({clicked: false, editing: false});
-    }   
+       
 }
         
 editInput(event){
@@ -123,9 +114,9 @@ editInput(event){
         editItem.continent = this.continentInput.value;
         editItem.population = this.populationInput.value;
         
-        console.log(editItem);
+       // console.log(editItem);
         this.setState({ item: editItem, clicked: false});
-        console.log("base item changed");
+       // console.log("base item changed");
 }
         
 
