@@ -120,3 +120,8 @@ body {
     width: 200px;
     height: 25px;
 }
+
+.fancy-table .bottom-row {
+    text-align: center;
+    font-weight: bold;
+}

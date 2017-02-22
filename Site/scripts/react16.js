@@ -4,7 +4,7 @@ class ObjectDisplay extends React.Component{
         this.fetchData = this.fetchData.bind(this);
         this.removeItem = this.removeItem.bind(this);
         this.filterList = this.filterList.bind(this);
-        this.state = { data: [], itemcount: 0, filter: ''};
+        this.state = { data: [], filter: ''};
     }
     
     render(){
@@ -12,7 +12,7 @@ class ObjectDisplay extends React.Component{
                <h2>Table of Countries</h2>
                <input id="filterbox" onChange={this.filterList}/>
                <ObjectTable list={this.state.data} removeEvent = {this.removeItem} filter={this.state.filter}/>
-               <p>Number of countries: {this.state.itemcount}</p>
+              
               
                </div>);
     }
@@ -50,7 +50,7 @@ class ObjectDisplay extends React.Component{
         let list = this.state.data;
         let newList = list.filter(x => x.name !== row.id);
         
-        this.setState({data: newList, itemcount: newList.length});
+        this.setState({data: newList});
     }
         
     filterList(event){
@@ -61,7 +61,10 @@ class ObjectDisplay extends React.Component{
     
     
 class ObjectTable extends React.Component{
-    
+    constructor(props){
+        super(props);
+        this.state = { count: 0};
+    }
     
     render(){
         
@@ -79,7 +82,7 @@ class ObjectTable extends React.Component{
                </thead>
                <tbody>
                {rows}
-                
+                <tr key="numrow" className="bottom-row"><td colSpan="3">Number of countries: {rows.length}</td></tr>
              </tbody>
                </table>);
     }
