@@ -107,3 +107,8 @@ body {
 .number-column {
     text-align:right;
 }
+
+.fancy-table .test {
+    border: 2px solid orange;
+    background-color: orange;
+}
