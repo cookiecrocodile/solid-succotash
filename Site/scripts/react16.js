@@ -67,7 +67,7 @@ class ObjectTable extends React.Component{
         
         let filter = this.props.filter.toLowerCase();
     
-        const rows = this.props.list.filter(x => x.name.toLowerCase().includes(filter)).map(x => <ObjectTableRow key={x.name} item={x} clickEvent={this.props.removeEvent}/>);
+        const rows = this.props.list.filter(x => x.name.toLowerCase().includes(filter) || x.continent.toLowerCase().includes(filter)).map(x => <ObjectTableRow key={x.name} item={x} clickEvent={this.props.removeEvent}/>);
 
         return(<table className="fancy-table">
                 <thead>
