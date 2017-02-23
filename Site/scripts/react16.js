@@ -134,6 +134,7 @@ render(){
         
         row = (<tr key={item.name} id={item.name}><td><input defaultValue={item.name} onBlur={this.editInput} ref={(input) => { this.nameInput = input; }}/></td><td><input defaultValue={item.continent} onBlur={this.editInput} ref={(input) => { this.continentInput = input; }}/></td><td className="number-column"><input defaultValue={item.population} onBlur={this.editInput} ref={(input) => { this.populationInput = input; }}/></td><td><button onClick={this.props.clickEvent}>Remove row</button></td></tr>);
         
+        
     }
     
     return row;
