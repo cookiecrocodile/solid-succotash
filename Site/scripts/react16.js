@@ -94,7 +94,7 @@ class ObjectTableRow extends React.Component{
     constructor(props){
         super(props);
             
-        this.state = {item: this.props.item, clicked: false, editing: false};
+        this.state = {item: this.props.item, clicked: false};
         this.setClickedState = this.setClickedState.bind(this);
         this.editInput = this.editInput.bind(this);
          }
